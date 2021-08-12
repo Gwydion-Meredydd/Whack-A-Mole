@@ -101,7 +101,6 @@ public class LightController : MonoBehaviour
             catch (System.Exception e)
             {
                 Debug.Log("Value in string was not an int.");
-                Debug.LogException(e);
             }
         }
         CurrentDelayTime = currentLightTiming.LightDelayTime;
@@ -114,7 +113,6 @@ public class LightController : MonoBehaviour
         //starts processing which light to turn on and when to turn it off and uses the is clicked bool to see if the player has pressed the correct light
         for (int i = 0; i <= GameManager.Instance.CurrentGridSize; i++)
         {
-            Debug.Log(i  + "  "  + LightsTurnedOn);
             if (LightsTurnedOn < GameManager.Instance.CurrentGridSize)
             {
                 if (CurrentOrder[LightsTurnedOn] == i)
@@ -171,6 +169,7 @@ public class LightController : MonoBehaviour
         clickedLight = false;
         failed = false;
         GridController.Instance.ResetGrid();
+        ImageController.Instance.DisableRefrenceImage();
         GameManager.Instance.CurrentGridSize = 0;
 
     }
